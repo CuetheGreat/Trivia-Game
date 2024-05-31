@@ -5,6 +5,7 @@ const { NotFoundError, BadRequestError } = require('../utils/customError');
 module.exports = questionController = {
   getQuestions: asyncHandler(async (req, res) => {
     const question = await Question.find();
+    if(!questionn) throw new NotFoundError('No question found')
     res.json(questions);
   }),
   getRandomQuestion: asyncHandler(async (req, res) => {
@@ -12,6 +13,9 @@ module.exports = questionController = {
     if (max === 0) throw new NotFoundError('No Question Available');
     const random = Math.floor(Math.randon() * max);
     const question = await Question.findOne().skip(random);
+    res.json({
+      question
+    })
   }),
   submitAnswer: asyncHandler(async (req, res) => {
     const { _id, answer } = req.body;
