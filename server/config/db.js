@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+/**
+ * Connects to the MongoDB database and sets up event listeners for connection status.
+ * @throws Will log an error message and exit the process if the connection fails.
+ */
 const connectMongoDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -15,7 +19,7 @@ const connectMongoDB = async () => {
     });
   } catch (err) {
     console.error('Failed to connect to MongoDB', err);
-    process.exit(1); // Exit process with failure
+    process.exit(1); 
   }
 };
 
