@@ -1,14 +1,21 @@
 {
   "name": "trivia-game",
   "version": "1.0.0",
-  "description": "Backend for the Trivia App built with Node.js, Express, and MongoDB.",
+  "description": "Backend for the Trivia App built with Node.js, Express, and MongoDB. This app handles user authentication, question management, and game logic.",
   "main": "./server/server.js",
   "scripts": {
-    "start": "nodemon ./server/server.js",
-    "test": "jest"
+    "start": "concurrently \"nodemon ./server/server.js\" \"cd client && npm start\"",
+    "test": "jest",
+    "lint": "eslint ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "trivia",
+    "game",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Your Name",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
@@ -22,7 +29,8 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "jest": "^29.7.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.2",
     "supertest": "^6.1.3"

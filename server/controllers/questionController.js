@@ -9,9 +9,9 @@ module.exports = questionController = {
    * @returns {number} count - The total number of questions
    */
   getQuestions: asyncHandler(async (req, res) => {
-    const question = await Question.find();
-    if (!question) throw new NotFoundError('No question found');
-    res.json({ count: question.length, question });
+    const questions = await Question.find();
+    if (!questions) throw new NotFoundError('No question found');
+    res.json({ count: questions.length, questions });
   }),
   /**
    * Fetches a random question from the database and returns it.
